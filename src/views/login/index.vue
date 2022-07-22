@@ -7,7 +7,8 @@
 
     <div class="login-form-wrap">
       <div class="login-head">
-        <div class="logo"></div>
+        <!-- <div class="logo"></div> -->
+        <div class="title">小黄未来科技管理系统</div>
       </div>
       <!--
         配置 Form 表单验证：
@@ -21,34 +22,18 @@
         1、给 el-form 设置 ref 起个名字（随便起名，不要重复即可）
         2、通过 ref 获取 el-form 组件，调用组件的 validate 进行验证
        -->
-      <el-form
-        class="login-form"
-        ref="login-form"
-        :model="user"
-        :rules="formRules"
-      >
+      <el-form class="login-form" ref="login-form" :model="user" :rules="formRules">
         <el-form-item prop="mobile">
-          <el-input
-            v-model="user.mobile"
-            placeholder="请输入手机号"
-          ></el-input>
+          <el-input v-model="user.mobile" placeholder="请输入手机号"></el-input>
         </el-form-item>
         <el-form-item prop="code">
-          <el-input
-            v-model="user.code"
-            placeholder="请输入验证码"
-          ></el-input>
+          <el-input v-model="user.code" placeholder="请输入验证码"></el-input>
         </el-form-item>
         <el-form-item prop="agree">
           <el-checkbox v-model="user.agree">我已阅读并同意用户协议和隐私条款</el-checkbox>
         </el-form-item>
         <el-form-item>
-          <el-button
-            class="login-btn"
-            type="primary"
-            :loading="loginLoading"
-            @click="onLogin"
-          >登录</el-button>
+          <el-button class="login-btn" type="primary" :loading="loginLoading" @click="onLogin">登录</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -108,8 +93,8 @@ export default {
   },
   computed: {},
   watch: {},
-  created () {},
-  mounted () {},
+  created () { },
+  mounted () { },
   methods: {
     onLogin () {
       // 获取表单数据（根据接口要求绑定数据）
@@ -185,13 +170,20 @@ export default {
   align-items: center;
   background: url("./login_bg.jpg") no-repeat;
   background-size: cover;
+
   .login-form-wrap {
     min-width: 300px;
     padding: 30px 50px 10px;
     background-color: #fff;
+
     .login-head {
       display: flex;
       justify-content: center;
+      .title{
+        margin-bottom: 15px;
+        font-size: 20px;
+        font-family: cursive;
+      }
       .logo {
         width: 200px;
         height: 57px;
@@ -199,6 +191,7 @@ export default {
         background-size: contain;
       }
     }
+
     .login-form {
       .login-btn {
         width: 100%;
